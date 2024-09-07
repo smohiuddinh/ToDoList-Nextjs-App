@@ -1,6 +1,14 @@
-import "@/styles/globals.css";
+// _app.tsx
+import "../styles/globals.css";
 import type { AppProps } from "next/app";
+import { TodosProvider } from "../Store/todo";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <TodosProvider>
+      <Component {...pageProps} />
+    </TodosProvider>
+  );
 }
+
+export default MyApp;
